@@ -7,9 +7,9 @@ public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
     {
         RuleFor(temp => temp.Email).NotEmpty().WithMessage("EmailId is required").EmailAddress().WithMessage("Invalid Email adress Format");
 
-        RuleFor(temp => temp.Password).NotEmpty().WithMessage("Password is required").MinimumLength(1).MaximumLength(10);
+        RuleFor(temp => temp.Password).NotEmpty().WithMessage("Password is required").Length(1, 15).WithMessage("Password Should be 1  to 15 charcter long");
 
-        RuleFor(temp => temp.PersonName).NotEmpty().WithMessage("PersonName is required").MinimumLength(3).MaximumLength(20);
+        RuleFor(temp => temp.PersonName).NotEmpty().WithMessage("PersonName is required").Length(1, 50).WithMessage("PersonName Should be 1 to 50 Character long");
 
         RuleFor(temp => temp.Gender).IsInEnum().WithMessage("Gender Not Specified");
     }
